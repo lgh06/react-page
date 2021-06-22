@@ -31,7 +31,7 @@ export const findSiblingRow = (
   } else {
     // so parent is a cell, so i am a row, previous row is therefor
     const myIndex = parent.rows.findIndex((r) => r.id === nodeId);
-    const siblingRow = parent.rows[myIndex - 1];
+    const siblingRow = parent.rows[myIndex + step];
     if (siblingRow) {
       return findInnerRow(siblingRow, direction);
     }

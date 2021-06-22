@@ -37,7 +37,7 @@ export const useMoveNodeUp = (nodeId: string) => {
         actions.below(cell, hoverTarget, 0);
       }
     };
-  }, [actions, hoverTarget, cell]);
+  }, [actions, hoverTarget, cell, isSameLevel]);
 };
 
 export const useMoveNodeDown = (nodeId: string) => {
@@ -66,6 +66,7 @@ export const useMoveNodeDown = (nodeId: string) => {
       return null;
     }
     return () => {
+      console.log({ isSameLevel, hoverTarget });
       if (isSameLevel) {
         // skip 1
         actions.below(cell, hoverTarget, 0);
@@ -73,5 +74,5 @@ export const useMoveNodeDown = (nodeId: string) => {
         actions.above(cell, hoverTarget, 0);
       }
     };
-  }, [actions, hoverTarget, cell]);
+  }, [actions, hoverTarget, cell, isSameLevel]);
 };
